@@ -8,25 +8,39 @@ int main(){
 	cout << "Kakuyu S budem schitat? 0 - krug, 1 - trapeciya: ";
 	cin >> u; cout << endl;
 	
-	if (u == 0){ //krug
-		cout << "Vvedi radius r: ";
-		cin >> r; cout << endl;
-		Sk = 3.14*r*r;
-		cout << "S kruga = " << Sk << endl;
+	if ( u!=0 && u!=1 && !u ) {
+		cout << "Vvodi po formatu!" << endl;
 	}
-	if (u == 1){ //trapiceya
-		cout << "Vvedi vverh osnovanie a: ";
-		cin >> a; cout << endl;
-		cout << "Vvedi nijn osnovanie b: ";
-		cin >> b; cout << endl;
-		cout << "Vvedi vysotu h: ";
-		cin >> h; cout << endl;
-		St = (0.5)*(a+b)*h; 
-		cout << "S trapecii = " << St << endl;
+	else {
+		if (u == 0){ //krug
+			cout << "Vvedi radius r: ";
+			cin >> r; cout << endl;
+			if (!r && r < 0) {
+				cout << "Vvedi normal r! " << endl;
+			}
+			else {
+				Sk = 3.14*r*r;
+				cout << "S kruga = " << Sk << endl;
+			}
+		}
+		if (u == 1){ //trapiceya
+			cout << "Vvedi vverh osnovanie a: ";
+			cin >> a; cout << endl;
+			cout << "Vvedi nijn osnovanie b: ";
+			cin >> b; cout << endl;
+			cout << "Vvedi vysotu h: ";
+			cin >> h; cout << endl;
+			if (!a || !b || !h || a < 0 || b < 0 || h < 0){
+				cout << "Vvedi normal dannie! " << endl;
+			}
+			else {
+				St = (0.5)*(a+b)*h; 
+				cout << "S trapecii = " << St << endl;
+			}
+		}
+		if (u != 1 && u != 0) {
+			cout << "Err! Tolko 1 or 0!" << endl;
+		}
 	}
-	if (u != 1 && u != 0) {
-		cout << "Err! Tolko 1 or 0!" << endl;
-	}
-
 	return 0;
 }
