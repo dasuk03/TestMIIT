@@ -10,7 +10,10 @@ int main(){
 	cout << "Vvedi s kakogo poroga zapisivaem v summu : ";
 	cin >> e; cout << endl;
 	
-	if (n && e) {
+	if (!n || !e) {
+		cout << " Eto ne chislo! " << endl;
+	}
+	else {
 		for (int i = 0; i < n; i++){
 			res = 1;
 			for (int u = 1; u <= i; u++) {
@@ -25,9 +28,6 @@ int main(){
 			}
 		}
 		cout << "Summa ryada pri Sn > "<< e << " = " << sum << endl;
-	}
-	else {
-		cout << " Eto ne chislo! " << endl;
 	}
 	return 0;
 }
