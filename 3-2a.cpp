@@ -8,7 +8,6 @@ int main(){
 	cout << "Vvedi n: ";
 	cin >> n; cout << endl;
 	
-	// n = 1 - ñêîëüêî ýë âñåãî
 	if (n) {
 		for (int i = 0; i < n; i++){
 			res = 1;
