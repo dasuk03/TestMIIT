@@ -8,7 +8,11 @@ int main(){
 	cout << "Vvedi n: ";
 	cin >> n; cout << endl;
 	
-	if (n) {
+	// n = 1 - сколько эл всего
+	if (!n) {
+		cout << "Ne chislo! " << endl;
+	}
+	else {
 		for (int i = 0; i < n; i++){
 			res = 1;
 			for (int u = 1; u <= i; u++) {
@@ -21,9 +25,6 @@ int main(){
 			cout << " sum = " << sum << endl;
 		}
 		cout << sum;
-	}
-	else {
-		cout << "Ne chislo! " << endl;
 	}
 	return 0;
 }
