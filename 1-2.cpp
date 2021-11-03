@@ -1,21 +1,37 @@
 #include <iostream>
 using namespace std;
 
+float V(float R){
+	return (4/3)*(3.14)*R*R*R;
+	/*
+	функция V возвращает объём шара, принимая Радиус 
+	return возвращает значение Объёма шара.
+	*/
+}
+float S(float R){
+	return 4*(3.14)*R*R;
+	/*
+	функция S возвращает площадь поверхности шара, принимая Радиус 
+	return возвращает значение Площади поверхности шара.
+	*/
+}
+
 int main(){
-	float R, V, S;
-	
-	cout << "Vvedi R: ";
+	float R;
+	setlocale( LC_ALL,"Russian" ); // служит для корректного вывода Кириллицы 
+	cout << "Введи R: ";
 	cin >> R;
 	
+	/*
+	Условие if(!R) проверяет формат ввода 
+	*/
+	
 	if (!R){
-		cout << "Vvedi chislo! " << endl;
+		cout << "Нужно вводить число! " << endl;
 	}
 	else {
-	V = (4/3)*(3.14)*R*R*R;
-	S = 4*(3.14)*R*R;
-	
-	cout << "V shara = " << V << endl;
-	cout << "S shara = " << S << endl;
+	cout << "V шара (объём) = " << V(R) << endl;
+	cout << "S шара (площадь поверхности)= " << S(R) << endl;
 	}
-	return 0;
+	return 0; //возвращает 0 (Успшеное завершение кода)
 }
