@@ -2,32 +2,64 @@
 #include <cmath>
 using namespace std;
 
-int main(){
-	double sum = 0; double sume = 0; double res = 1;
-	float n = 0; float a,b,e;
-	cout << "Vvedi n: ";
+double faktorial(int i){ // факториал числа
+
+	double res = 1; // начально значение факториала !0 = 1
+	for (int u = 1; u <= i; u++) {
+		res = res * u;
+	}
+	return res; // Возвращает значение факториала 
+
+	/*
+	Функция faktorial принимает номер элемента факториала
+	и возвращает его значение
+	*/
+}
+
+double summa() {
+	
+	float a,b,e;
+	float n = 0; double sum = 0, sume = 0;
+	
+	cout << "Введи n: ";
 	cin >> n; cout << endl;
-	cout << "Vvedi s kakogo poroga zapisivaem v summu : ";
+	
+	cout << "С какого значения элемента будем записывать его в сумму : ";
 	cin >> e; cout << endl;
 	
-	if (!n || !e) {
-		cout << " Eto ne chislo! " << endl;
+	if (!n || !e) {  // Проверка формата ввода
+		cout << "Введи число! " << endl;
 	}
 	else {
+	
 		for (int i = 0; i < n; i++){
-			res = 1;
-			for (int u = 1; u <= i; u++) {
-				res = res * u;
-	  		}
-	  		
-			a = pow((-1),i);
-			sume = a/res;
+				
+			// faktorial(i); // Вызов факториала i элемента
 			
-			if (sume >= e){
-				sum = sum + sume;
+			a = pow((-1),i); // Степень (-1) 
+			
+			// cout << " a = " << a << endl;
+			// cout << " res = " << faktorial(i) << endl;
+			
+			sume = (a/faktorial(i)); // Счётчик значения элемента
+			if (sume >= e){ // Проверка значения элемента суммы на > e
+				sum = sum + sume; // если элемент > e то записываем его в сумму 
 			}
+			
 		}
-		cout << "Summa ryada pri Sn > "<< e << " = " << sum << endl;
+		cout << "Сумма ряда при Sn > "<< e << " = " << sum << endl;
 	}
-	return 0;
+	/*
+	Функция считывает значения n и e 
+	Проверяет их на правильность ввода
+	Считает каждый элемент суммы и проверяет больше ли он числа e 
+	Если больше этот элемент записывается в сумму (нет - нет)
+	*/
+}
+
+int main(){
+
+	setlocale( LC_ALL,"Russian" ); // Вывод Кириллицы 
+	summa(); // Вызов функции подсчёта суммы 
+	return 0; // успешное завершение кода
 }
