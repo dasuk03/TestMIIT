@@ -1,37 +1,37 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-float V(float R){
-	return (4/3)*(3.14)*R*R*R;
-	/*
-	функция V возвращает объём шара, принимая Радиус 
-	return возвращает значение Объёма шара.
-	*/
-}
-float S(float R){
-	return 4*(3.14)*R*R;
-	/*
-	функция S возвращает площадь поверхности шара, принимая Радиус 
-	return возвращает значение Площади поверхности шара.
-	*/
-}
+//! Функция нахождения объёма шара
+/*! Принимает значение радиуса, возвращает значение объёма */
+float getVolume(float radius);
+
+//! Функция нахождения площади поверхности шара
+/*! Принимает значение радиуса, возвращает значение площади поверхности */
+float getArea(float radius);
+
 
 int main(){
-	float R;
-	setlocale( LC_ALL,"Russian" ); // служит для корректного вывода Кириллицы 
-	cout << "Введи R: ";
-	cin >> R;
+	float radius; /*! Для значения радиуса */
+	setlocale( LC_ALL,"Russian" ); /*! служит для корректного вывода Кириллицы */
+	cout << "Введи radius: ";
+	cin >> radius;
 	
-	/*
-	Условие if(!R) проверяет формат ввода 
-	*/
+	cout << "V шара (объём) = " << getVolume(radius) << endl;
+	cout << "S шара (площадь поверхности)= " << getArea(radius) << endl;
+
+	return 0; 
+}
+
+float getVolume(float radius){
+	float Volume; /*! Для значения объёма шара */
+	Volume = (4*M_PI*radius*radius*radius)/(3.0);
+	return Volume; /*! Возвращает значение объёма шара */
 	
-	if (!R){
-		cout << "Нужно вводить число! " << endl;
-	}
-	else {
-	cout << "V шара (объём) = " << V(R) << endl;
-	cout << "S шара (площадь поверхности)= " << S(R) << endl;
-	}
-	return 0; //возвращает 0 (Успшеное завершение кода)
+}
+
+float getArea(float radius){
+	float Area; /*! Для значения площади поверхности шара */
+	Area = 4*M_PI*radius*radius;
+	return Area; /*! Возвращает значение площади поверхности шара */
 }
